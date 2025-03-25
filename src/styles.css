@@ -5,12 +5,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
-  color: #333;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -58,4 +61,126 @@ body {
   .section-title {
     font-size: 2rem;
   }
+}
+
+/* Base theme */
+:root {
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --card-background: #ffffff;
+  --primary-color: #5c2d91;
+  --accent-color: #8a4baf;
+  --tag-background: rgba(92, 45, 145, 0.1);
+  --primary-rgb: 92, 45, 145;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --bg-main: #ffffff;
+  --bg-card: #ffffff;
+  --bg-light: #f4f5f9;
+  --text-primary: #2d2d2d;
+  --text-muted: #666666;
+  --primary: #5b3e99;
+  --primary-dark: #3a1f6e;
+  --primary-light: #8a6fff;
+  --accent: #7c4dff;
+  --accent-light: #9d87ff;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+  --background-color: #1a1a1a;
+  --text-color: #ffffff;
+  --card-background: #2d2d2d;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --bg-main: #121212;
+  --bg-card: #1e1e1e;
+  --bg-light: #1a1a1a;
+  --text-primary: #ffffff;
+  --text-muted: #a0a0a0;
+  --primary: #8a6fff;
+  --primary-dark: #5b3e99;
+  --primary-light: #b4a0ff;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Apply base styles */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+/* Dark mode overrides */
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+[data-theme="dark"] .card,
+[data-theme="dark"] .skill-card,
+[data-theme="dark"] .project-card {
+  background: var(--card-background);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .hero,
+[data-theme="dark"] .cta {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, #121212 100%);
+}
+
+[data-theme="dark"] .featured-skills,
+[data-theme="dark"] .projects {
+  background: var(--bg-main);
+}
+
+[data-theme="dark"] .section-title {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .skill-card p,
+[data-theme="dark"] .project-content p {
+  color: var(--text-muted);
+}
+
+/* Smooth transitions */
+body,
+.card,
+.skill-card,
+.project-card,
+.hero,
+.cta,
+.featured-skills,
+.projects {
+  transition: background-color 0.3s ease, 
+              color 0.3s ease, 
+              border-color 0.3s ease;
+}
+
+/* Improved dark mode images */
+[data-theme="dark"] img {
+  filter: brightness(0.9) contrast(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  [data-theme="dark"] .card,
+  [data-theme="dark"] .skill-card,
+  [data-theme="dark"] .project-card {
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+body.dark-theme {
+  --background-color: #1a1a1a;
+  --text-color: #ffffff;
+  --card-background: #2d2d2d;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --primary-color: #8a4baf;
+  --accent-color: #b76edf;
+  --tag-background: rgba(138, 75, 175, 0.2);
 }

@@ -111,6 +111,130 @@ import { RouterLink } from '@angular/router';
     </section>
   `,
   styles: [`
+    :host {
+      display: block;
+      background: #2D1B69;
+      background: linear-gradient(135deg, #2D1B69, #1A103F);
+    }
+
+    .hero-section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 1.5rem;
+      color: #FFFFFF !important;
+      font-weight: 600;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      margin-bottom: 2rem;
+      color: rgba(255, 255, 255, 0.9) !important;
+      line-height: 1.6;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-button {
+      background: #8A4BAF;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: inline-block;
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 15px rgba(138, 75, 175, 0.3);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(138, 75, 175, 0.4);
+      background: #9B5BC0;
+    }
+
+    /* Fix for the Windows activation text */
+    :host ::ng-deep .windows-activation {
+      color: rgba(255, 255, 255, 0.7) !important;
+    }
+
+    :host ::ng-deep .windows-activation-text {
+      color: rgba(255, 255, 255, 0.7) !important;
+    }
+
+    /* Technical expertise section can use theme variables */
+    .technical-expertise {
+      background: var(--background-color);
+      padding: 4rem 2rem;
+      color: var(--text-color);
+    }
+
+    .section-title {
+      color: var(--text-color);
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    /* Rest of your existing styles for technical expertise section */
+    .featured-skills, .projects {
+      background: var(--bg-main);
+    }
+
+    .skill-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+    }
+
+    .skill-card h3 {
+      color: var(--text-primary);
+    }
+
+    .skill-card p {
+      color: var(--text-muted);
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+    }
+
+    .project-content h3 {
+      color: var(--text-primary);
+    }
+
+    .project-content p {
+      color: var(--text-muted);
+    }
+
+    .tech-stack span {
+      background: var(--primary-light);
+      color: var(--text-primary);
+    }
+
+    .section-title {
+      color: var(--text-primary);
+    }
+
     /* Variables */
     :host {
       --primary-darkest: #1a1025;
@@ -132,8 +256,6 @@ import { RouterLink } from '@angular/router';
 
     /* Hero Section */
     .hero {
-      background: var(--gradient-primary);
-      color: var(--text-light);
       padding: clamp(4rem, 10vw, 8rem) 0;
       text-align: center;
       position: relative;
@@ -227,7 +349,6 @@ import { RouterLink } from '@angular/router';
     /* Featured Skills Section */
     .featured-skills {
       padding: clamp(4rem, 8vw, 7rem) 0;
-      background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
       position: relative;
       border-top: 1px solid rgba(138, 111, 255, 0.1);
     }
@@ -252,7 +373,6 @@ import { RouterLink } from '@angular/router';
 
     .section-title {
       text-align: center;
-      color: var(--primary);
       margin-bottom: clamp(2rem, 5vw, 3rem);
       font-size: clamp(2rem, 4vw, 2.8rem);
       font-weight: 700;
@@ -296,13 +416,9 @@ import { RouterLink } from '@angular/router';
     }
 
     .skill-card {
-      background: linear-gradient(145deg, #ffffff, #f8f9ff);
       padding: clamp(2rem, 4vw, 2.5rem);
-      border-radius: 20px;
-      box-shadow: var(--shadow-md);
       text-align: center;
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      border: 1px solid rgba(138, 111, 255, 0.1);
       position: relative;
       overflow: hidden;
       display: flex;
@@ -366,7 +482,6 @@ import { RouterLink } from '@angular/router';
     /* Projects Section */
     .projects {
       padding: clamp(4rem, 8vw, 7rem) 0;
-      background: linear-gradient(135deg, #ffffff 0%, #f4f5f9 100%);
       position: relative;
       border-top: 1px solid rgba(138, 111, 255, 0.1);
     }
@@ -392,12 +507,9 @@ import { RouterLink } from '@angular/router';
     }
 
     .project-card {
-      background: linear-gradient(145deg, #ffffff, #f4f5f9);
-      border-radius: 20px;
       overflow: hidden;
       box-shadow: var(--shadow-md);
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      border: 1px solid rgba(138, 111, 255, 0.1);
     }
 
     .project-card:hover {
@@ -413,12 +525,9 @@ import { RouterLink } from '@angular/router';
 
     .project-content {
       padding: 2rem;
-      background: linear-gradient(145deg, #ffffff, #f8f9ff);
     }
 
     .project-content h3 {
-      color: var(--primary);
-      font-size: 1.5rem;
       margin-bottom: 1rem;
       position: relative;
       display: inline-block;
@@ -441,7 +550,6 @@ import { RouterLink } from '@angular/router';
     }
 
     .project-content p {
-      color: var(--text-dark);
       margin-bottom: 1.5rem;
     }
 
@@ -452,8 +560,6 @@ import { RouterLink } from '@angular/router';
     }
 
     .tech-stack span {
-      background: var(--bg-light);
-      color: var(--primary);
       padding: 0.5rem 1rem;
       border-radius: 20px;
       font-size: 0.9rem;
@@ -462,13 +568,13 @@ import { RouterLink } from '@angular/router';
 
     /* CTA Section */
     .cta {
-      background: var(--gradient-primary);
-      color: var(--text-light);
       padding: clamp(4rem, 8vw, 6rem) 0;
       text-align: center;
       position: relative;
       overflow: hidden;
       box-shadow: var(--shadow-lg);
+      background: var(--gradient-primary);
+      border-top: 1px solid rgba(138, 111, 255, 0.1);
     }
 
     .cta::before {
@@ -483,10 +589,10 @@ import { RouterLink } from '@angular/router';
     }
 
     .cta h2 {
-      color: var(--text-light);
       margin-bottom: clamp(1rem, 2vw, 1.5rem);
       font-size: clamp(2rem, 4vw, 3rem);
       font-weight: 700;
+      color: #FFFFFF !important;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
       padding: 0 1rem;
     }
@@ -495,6 +601,7 @@ import { RouterLink } from '@angular/router';
       margin-bottom: clamp(2rem, 3vw, 2.5rem);
       opacity: 0.95;
       font-size: clamp(1rem, 1.5vw, 1.2rem);
+      color: rgba(255, 255, 255, 0.9) !important;
       text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
       max-width: 600px;
       margin-left: auto;
@@ -582,12 +689,10 @@ import { RouterLink } from '@angular/router';
     }
 
     .featured-skills {
-      background-color: var(--bg-light);
       padding-bottom: 4rem;
     }
 
     .projects {
-      background-color: var(--text-light);
       padding-bottom: 4rem;
     }
 

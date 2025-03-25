@@ -38,29 +38,29 @@ import { Component } from '@angular/core';
           <div class="card-content">
             <h3>Full Stack Development</h3>
             <div class="highlight-point">
-              • Architected and developed scalable MEAN stack applications with microservices architecture
+              Architected and developed scalable MEAN stack applications with microservices architecture
             </div>
             <div class="highlight-point">
-              • Implemented responsive UI designs using Angular, achieving 50% faster load times
+              Implemented responsive UI designs using Angular, achieving 50% faster load times
             </div>
             <div class="highlight-point">
-              • Developed RESTful and GraphQL APIs with Node.js and Express, improving data retrieval by 50%
+              Developed RESTful and GraphQL APIs with Node.js and Express, improving data retrieval by 50%
             </div>
             <div class="highlight-point">
-              • Designed and optimized MongoDB and MySQL databases for efficient data management
+              Designed and optimized MongoDB and MySQL databases for efficient data management
             </div>
             <h3>DevOps & Cloud</h3>
             <div class="highlight-point">
-              • Implemented CI/CD pipelines using Jenkins for automated testing and deployment
+              Implemented CI/CD pipelines using Jenkins for automated testing and deployment
             </div>
             <div class="highlight-point">
-              • Managed Kubernetes clusters for container orchestration and scaling
+              Managed Kubernetes clusters for container orchestration and scaling
             </div>
             <div class="highlight-point">
-              • Utilized AWS Lambda and S3 for serverless architecture and storage solutions
+              Utilized AWS Lambda and S3 for serverless architecture and storage solutions
             </div>
             <div class="highlight-point">
-              • Set up Grafana monitoring dashboards for real-time performance tracking
+              Set up Grafana monitoring dashboards for real-time performance tracking
             </div>
           </div>
         </section>
@@ -134,15 +134,15 @@ import { Component } from '@angular/core';
       max-width: 1200px;
       margin: 0 auto;
       padding: 2rem;
-      background: linear-gradient(135deg, var(--bg-light) 0%, #ffffff 100%);
+      background: var(--bg-main);
     }
 
     .about-header {
-      background: linear-gradient(135deg, #5b3e99 0%, #3a1f6e 100%);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
       border-radius: 20px;
       padding: 2rem;
       margin-bottom: 2rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: var(--shadow-md);
     }
 
     .profile-section {
@@ -191,7 +191,7 @@ import { Component } from '@angular/core';
     }
 
     .contact-details p {
-      color: #ffffff;
+      color: white;
       margin: 0.7rem 0;
       font-size: 1rem;
       display: flex;
@@ -199,7 +199,7 @@ import { Component } from '@angular/core';
     }
 
     .contact-details strong {
-      color: #e0d5ff;
+      color: rgba(255, 255, 255, 0.9);
       margin-right: 1rem;
       min-width: 80px;
       font-weight: 500;
@@ -238,12 +238,12 @@ import { Component } from '@angular/core';
       height: 100%;
       overflow-y: auto;
       max-height: 600px;
-      background: linear-gradient(145deg, #ffffff, #f8f9ff);
+      background: var(--bg-card);
       border-radius: 15px;
       padding: 2rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      box-shadow: var(--shadow-sm);
       transition: transform 0.3s;
-      border: 1px solid rgba(138, 111, 255, 0.1);
+      border: 1px solid var(--border-color);
     }
 
     .card::-webkit-scrollbar {
@@ -265,7 +265,7 @@ import { Component } from '@angular/core';
     }
 
     .card h3 {
-      color: var(--primary);
+      color: var(--text-primary);
       margin-bottom: 1.5rem;
       font-size: 1.4rem;
       border-bottom: 2px solid var(--primary-light);
@@ -277,7 +277,7 @@ import { Component } from '@angular/core';
     }
 
     .skill-category h3 {
-      color: var(--primary);
+      color: var(--text-primary);
       margin-bottom: 1rem;
       font-size: 1.2rem;
     }
@@ -290,8 +290,8 @@ import { Component } from '@angular/core';
     }
 
     .skill-tag {
-      background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-light) 100%);
-      color: var(--primary);
+      background: var(--primary-light);
+      color: var(--text-primary);
       padding: 0.6rem 1.2rem;
       border-radius: 20px;
       font-size: 0.9rem;
@@ -313,7 +313,7 @@ import { Component } from '@angular/core';
 
     .edu-item {
       padding-bottom: 1.5rem;
-      border-bottom: 1px solid rgba(138, 111, 255, 0.1);
+      border-bottom: 1px solid var(--border-color);
     }
 
     .edu-item:last-child {
@@ -396,4 +396,4 @@ export class AboutComponent {
   handleImageError(event: any) {
     event.target.src = 'assets/profile/default-avatar.png';
   }
-} 
+}
