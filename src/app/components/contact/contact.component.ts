@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-contact',
   standalone: true,
@@ -329,7 +329,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 })
 export class ContactComponent {
   @ViewChild('contactForm') contactForm!: NgForm;
-  
+
   contactData = {
     name: '',
     email: '',
@@ -341,7 +341,7 @@ export class ContactComponent {
   submitMessage = '';
   submitStatus = false;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   onSubmit() {
     if (this.isSubmitting) return;
@@ -349,7 +349,7 @@ export class ContactComponent {
     this.isSubmitting = true;
     this.submitMessage = '';
 
-    this.http.post('http://localhost:3000/contact', this.contactData)
+    this.http.post(environment.apiUrl, this.contactData)
       .subscribe({
         next: (response: any) => {
           this.submitMessage = 'Message sent successfully!';
@@ -374,7 +374,7 @@ export class ContactComponent {
         control.markAsUntouched();
       });
     }
-    
+
     this.contactData = {
       name: '',
       email: '',
