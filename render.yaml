@@ -2,11 +2,15 @@ services:
   - type: web
     name: portfolio-ui
     env: node
-    buildCommand: npm install && npm run build
-    startCommand: npx serve dist/portfolio_ui
+    buildCommand: npm install && npm run build:prod
+    startCommand: npx serve -s dist/portfolio_ui -l $PORT
     envVars:
       - key: NODE_VERSION
         value: 18.0.0
+      - key: PORT
+        value: 10000
+    healthCheckPath: /
+    autoDeploy: true
     routes:
       - type: rewrite
         source: /*
