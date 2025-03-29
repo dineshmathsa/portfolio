@@ -349,7 +349,7 @@ export class ContactComponent {
     this.isSubmitting = true;
     this.submitMessage = '';
 
-    this.http.post(environment.apiUrl, this.contactData)
+    this.http.post(environment.apiUrl+'/contact', this.contactData)
       .subscribe({
         next: (response: any) => {
           this.submitMessage = 'Message sent successfully!';
