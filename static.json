@@ -1,6 +1,0 @@
-{
-  "root": "dist/portfolio_ui",
-  "routes": {
-    "/**": "index.html"
-  }
-} 
